@@ -8,7 +8,7 @@ public class DrawingApp {
     public static void main(String[] args) {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/beans.xml");
-        Triangle triangle = (Triangle) context.getBean("triangle");
+        Triangle triangle = (Triangle) context.getBean("triangle-alias");
         triangle.draw();
 
     }

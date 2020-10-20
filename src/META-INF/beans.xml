@@ -6,8 +6,20 @@
     <bean id="triangle" class="org.halim.javaExample.Triangle">
        <!--  ref pour la reference d'un autre beans-->
         <property name="pointA" ref="zeroPoint"/>
-        <property name="pointB" ref="point2"/>
-        <property name="pointC" ref="point3"/>
+        <property name="pointB">
+            <bean class="org.halim.javaExample.Point">
+                <property name="x" value="-20"/>
+                <property name="y" value="0"/>
+            </bean>
+        </property>
+
+
+        <property name="pointC">
+            <bean class="org.halim.javaExample.Point">
+                <property name="x" value="0"/>
+                <property name="y" value="20"/>
+            </bean>
+        </property>
     </bean>
 
     <bean id="zeroPoint" class="org.halim.javaExample.Point">
@@ -15,15 +27,8 @@
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="point2" class="org.halim.javaExample.Point">
-        <property name="x" value="-20"/>
-        <property name="y" value="0"/>
-    </bean>
-
-    <bean id="point3" class="org.halim.javaExample.Point">
-        <property name="x" value="0"/>
-        <property name="y" value="20"/>
-    </bean>
+<!-- Create an alias, it's better to use IDs in order for convention-->
+    <alias name="triangle" alias="triangle-alias"/>
 
 
 
